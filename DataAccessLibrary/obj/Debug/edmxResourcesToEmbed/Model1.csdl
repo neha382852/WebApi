@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProductsApiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ActivityProduct">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NumberOfPeople" Type="Int32" />
+    <Property Name="ActivityType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ActivityLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsBooked" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsSaved" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="AirProduct">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Price" Type="Int32" />
+    <Property Name="ArrivalDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ArrivalTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DeprtureDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DepartureTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Source" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Destination" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsBooked" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsSaved" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CarProduct">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Price" Type="Int32" />
+    <Property Name="ModelNo" Type="Int32" />
+    <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsBooked" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsSaved" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="HotelProduct">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NoOfAvailableRooms" Type="Int32" />
+    <Property Name="RoomPrice" Type="Int32" />
+    <Property Name="RoomType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="WifiAvailability" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsBooked" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsSaved" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="ProductsApiEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ActivityProducts" EntityType="Self.ActivityProduct" />
+    <EntitySet Name="AirProducts" EntityType="Self.AirProduct" />
+    <EntitySet Name="CarProducts" EntityType="Self.CarProduct" />
+    <EntitySet Name="HotelProducts" EntityType="Self.HotelProduct" />
+  </EntityContainer>
+</Schema>

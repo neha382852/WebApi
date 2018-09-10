@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ProductsApiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ActivityProduct">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Price" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="NumberOfPeople" Type="int" />
+          <Property Name="ActivityType" Type="varchar" MaxLength="50" />
+          <Property Name="ActivityLocation" Type="varchar" MaxLength="50" />
+          <Property Name="IsBooked" Type="varchar" MaxLength="50" />
+          <Property Name="IsSaved" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="AirProduct">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Price" Type="int" />
+          <Property Name="ArrivalDate" Type="varchar" MaxLength="50" />
+          <Property Name="ArrivalTime" Type="varchar" MaxLength="50" />
+          <Property Name="DeprtureDate" Type="varchar" MaxLength="50" />
+          <Property Name="DepartureTime" Type="varchar" MaxLength="50" />
+          <Property Name="Source" Type="varchar" MaxLength="50" />
+          <Property Name="Destination" Type="varchar" MaxLength="50" />
+          <Property Name="IsBooked" Type="varchar" MaxLength="50" />
+          <Property Name="IsSaved" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CarProduct">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Price" Type="int" />
+          <Property Name="ModelNo" Type="int" />
+          <Property Name="CompanyName" Type="varchar" MaxLength="50" />
+          <Property Name="IsBooked" Type="varchar" MaxLength="50" />
+          <Property Name="IsSaved" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="HotelProduct">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Location" Type="varchar" MaxLength="50" />
+          <Property Name="NoOfAvailableRooms" Type="int" />
+          <Property Name="RoomPrice" Type="int" />
+          <Property Name="RoomType" Type="varchar" MaxLength="50" />
+          <Property Name="WifiAvailability" Type="varchar" MaxLength="50" />
+          <Property Name="IsBooked" Type="varchar" MaxLength="50" />
+          <Property Name="IsSaved" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="ProductsApiModelStoreContainer">
+          <EntitySet Name="ActivityProduct" EntityType="Self.ActivityProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AirProduct" EntityType="Self.AirProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CarProduct" EntityType="Self.CarProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HotelProduct" EntityType="Self.HotelProduct" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ProductsApiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ActivityProduct">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NumberOfPeople" Type="Int32" />
+          <Property Name="ActivityType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ActivityLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsBooked" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsSaved" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AirProduct">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="Int32" />
+          <Property Name="ArrivalDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ArrivalTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DeprtureDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DepartureTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Source" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Destination" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsBooked" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsSaved" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CarProduct">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="Int32" />
+          <Property Name="ModelNo" Type="Int32" />
+          <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsBooked" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsSaved" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="HotelProduct">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NoOfAvailableRooms" Type="Int32" />
+          <Property Name="RoomPrice" Type="Int32" />
+          <Property Name="RoomType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WifiAvailability" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsBooked" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsSaved" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="ProductsApiEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ActivityProducts" EntityType="Self.ActivityProduct" />
+          <EntitySet Name="AirProducts" EntityType="Self.AirProduct" />
+          <EntitySet Name="CarProducts" EntityType="Self.CarProduct" />
+          <EntitySet Name="HotelProducts" EntityType="Self.HotelProduct" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ProductsApiModelStoreContainer" CdmEntityContainer="ProductsApiEntities">
+          <EntitySetMapping Name="ActivityProducts">
+            <EntityTypeMapping TypeName="ProductsApiModel.ActivityProduct">
+              <MappingFragment StoreEntitySet="ActivityProduct">
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="NumberOfPeople" ColumnName="NumberOfPeople" />
+                <ScalarProperty Name="ActivityType" ColumnName="ActivityType" />
+                <ScalarProperty Name="ActivityLocation" ColumnName="ActivityLocation" />
+                <ScalarProperty Name="IsBooked" ColumnName="IsBooked" />
+                <ScalarProperty Name="IsSaved" ColumnName="IsSaved" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AirProducts">
+            <EntityTypeMapping TypeName="ProductsApiModel.AirProduct">
+              <MappingFragment StoreEntitySet="AirProduct">
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="ArrivalDate" ColumnName="ArrivalDate" />
+                <ScalarProperty Name="ArrivalTime" ColumnName="ArrivalTime" />
+                <ScalarProperty Name="DeprtureDate" ColumnName="DeprtureDate" />
+                <ScalarProperty Name="DepartureTime" ColumnName="DepartureTime" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="Destination" ColumnName="Destination" />
+                <ScalarProperty Name="IsBooked" ColumnName="IsBooked" />
+                <ScalarProperty Name="IsSaved" ColumnName="IsSaved" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarProducts">
+            <EntityTypeMapping TypeName="ProductsApiModel.CarProduct">
+              <MappingFragment StoreEntitySet="CarProduct">
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="ModelNo" ColumnName="ModelNo" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="IsBooked" ColumnName="IsBooked" />
+                <ScalarProperty Name="IsSaved" ColumnName="IsSaved" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HotelProducts">
+            <EntityTypeMapping TypeName="ProductsApiModel.HotelProduct">
+              <MappingFragment StoreEntitySet="HotelProduct">
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="NoOfAvailableRooms" ColumnName="NoOfAvailableRooms" />
+                <ScalarProperty Name="RoomPrice" ColumnName="RoomPrice" />
+                <ScalarProperty Name="RoomType" ColumnName="RoomType" />
+                <ScalarProperty Name="WifiAvailability" ColumnName="WifiAvailability" />
+                <ScalarProperty Name="IsBooked" ColumnName="IsBooked" />
+                <ScalarProperty Name="IsSaved" ColumnName="IsSaved" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
