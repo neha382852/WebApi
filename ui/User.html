@@ -1,0 +1,318 @@
+<html>
+
+<head>
+    <title>ProductApi</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        function bookProduct(product, id) {
+
+            var url = "http://localhost:52419/api/" + product;
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("PUT", url, true);
+            xhttp.onload = function () {
+                if (xhttp.readyState == 4 && xhttp.status == "200") {
+                    alert(xhttp.responseText);
+                }
+                else {
+                    alert(xhttp.readyState);
+                }
+            }
+            xhttp.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+            var selectedProduct = {
+                ProductId: id,
+                OperationType: "book"
+            }
+            xhttp.send(JSON.stringify(selectedProduct));
+        }
+        function saveProduct(product, id) {
+
+            var url = "http://localhost:52419/api/" + product;//+"/save/"+id;
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("PUT", url, true);
+            xhttp.onload = function () {
+                if (xhttp.readyState == 4 && xhttp.status == "200") {
+                    alert(xhttp.responseText);
+                }
+                else {
+                    alert(xhttp.readyState);
+                }
+            }
+            xhttp.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+            var selectedProduct = {
+                ProductId: id,
+                OperationType: "save"
+            }
+            xhttp.send(JSON.stringify(selectedProduct));
+        }
+        function getListOfAirProducts() {
+
+            var xhttp = new XMLHttpRequest();
+            var result = document.getElementById("productresult");
+            result.innerHTML = "";
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    productresult = JSON.parse(this.responseText);
+                    productresult.forEach(currentproduct => {
+                        var content;
+
+                        content =
+                            "<div class='card'>" +
+                            "<div class='row card-body'>" +
+                            "<div class='col'><h3 class='card-title'>" + currentproduct.Name + "</h3></div>" +
+                            "<div class='col'>" +
+                            " Departure Date: " + currentproduct.DeprtureDate +
+                            "</div>" +
+                            "<div class='col'>" +
+                            " Arrival Date: " + currentproduct.ArrivalDate +
+                            "</div>" +
+                            "<div class='col'>" +
+                            " Departure Time: " + currentproduct.DepartureTime +
+                            "</div>" +
+                            "<div class='col'>" +
+                            " Arrival Time: " + currentproduct.ArrivalTime +
+                            "</div>" +
+                            "<div class='col' >" + "Price:" + currentproduct.Price + "</div>" +
+                            "<div class='col' >" + "Source:" + currentproduct.Source + "</div>" +
+                            "<div class='col' >" + "Destination:" + currentproduct.Destination + "</div>";
+
+
+                        if (currentproduct.IsBooked == "False") {
+
+                            content += "<input style='margin:10px' class='col btn btn-primary' type='button' value='Book' onclick=\"bookProduct(\'Air\'," + currentproduct.ProductId + ")\" >";
+
+                        }
+
+                        else {
+
+                            content += "<input style='margin:10px;' class='col btn btn-primary' type='button' value='Booked' onclick=\"bookProduct(\'Air\'," + currentproduct.ProductId + ")\" disabled>";
+
+                        }
+
+                        if (currentproduct.IsSaved == "False") {
+
+                            content += "<input style='margin:10px' class='col btn btn-success' type='button' value='Save' onclick=\"saveProduct(\'Air\'," + currentproduct.ProductId + ")\">";
+
+                        }
+
+                        else {
+
+                            content += "<input style='margin:10px' class='col btn btn-success' type='button' value='Saved' onclick=\"saveProduct(\'Air\'," + currentproduct.ProductId + ")\" disabled>";
+
+                        }
+                        "</div>" +
+                            "</div>"
+                        result.innerHTML += content;
+
+                    });
+                }
+            };
+            xhttp.open("GET", "http://localhost:52419/api/air", true);
+            xhttp.send();
+        }
+        function getListOfHotelProducts() {
+
+            var xhttp = new XMLHttpRequest();
+            var result = document.getElementById("productresult");
+            result.innerHTML = "";
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    productresult = JSON.parse(this.responseText);
+                    productresult.forEach(currentproduct => {
+                        var content;
+
+                        content =
+
+                            "<div class='card'>" +
+                            "<div class='row card-body'>" +
+                            "<div class='col'><h3 class='card-title'>" + currentproduct.Name + "</h3></div>" +
+                            "<div class='col'>" +
+                            "Room Price: " + currentproduct.RoomPrice +
+                            "</div>" +
+                            "<div class='col'>" +
+                            "Room Type: " + currentproduct.RoomType +
+                            "</div>" +
+                            "<div class='col'>" +
+                            " Location: " + currentproduct.Location +
+                            "</div>" +
+                            "<div class='col'>" +
+                            " NoOfAvailableRooms: " + currentproduct.NoOfAvailableRooms +
+                            "</div>" +
+                            "<div class='col' >" + "Price:" + currentproduct.RoomPrice + "</div>" +
+                            "<div class='col' >" + "WifiAvailability:" + currentproduct.WifiAvailability + "</div>";
+
+                        if (currentproduct.IsBooked == "False") {
+
+                            content += "<input style='margin:10px' class='col btn btn-primary' type='button' value='Book' onclick=\"bookProduct(\'Hotel\'," + currentproduct.ProductId + ")\" >";
+
+                        }
+
+                        else {
+
+                            content += "<input style='margin:10px;' class='col btn btn-primary' type='button' value='Booked' onclick=\"bookProduct(\'Hotel\'," + currentproduct.ProductId + ")\" disabled>";
+
+                        }
+
+                        if (currentproduct.IsSaved == "False") {
+
+                            content += "<input style='margin:10px' class='col btn btn-success' type='button' value='Save' onclick=\"saveProduct(\'Hotel\'," + currentproduct.ProductId + ")\">";
+
+                        }
+
+                        else {
+
+                            content += "<input style='margin:10px' class='col btn btn-success' type='button' value='Saved' onclick=\"saveProduct(\'Hotel\'," + currentproduct.ProductId + ")\" disabled>";
+
+                        }
+                        "</div>" +
+                            "</div>"
+                        result.innerHTML += content;
+
+                    });
+                }
+            };
+            xhttp.open("GET", "http://localhost:52419/api/hotel", true);
+            xhttp.send();
+        }
+        function getListOfActivityProducts() {
+
+            var xhttp = new XMLHttpRequest();
+            var result = document.getElementById("productresult");
+            result.innerHTML = "";
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    productresult = JSON.parse(this.responseText);
+                    productresult.forEach(currentproduct => {
+                        var content;
+                        content =
+                            "<div class='card'>" +
+                            "<div class='row card-body'>" +
+                            "<div class='col'><h3 class='card-title'>" + currentproduct.Name + "</h3></div>" +
+                            "<div class='col'>" +
+                            "Activity Type: " + currentproduct.ActivityType +
+                            "</div>" +
+                            "<div class='col' >" +
+                            "Activity Location: " + currentproduct.ActivityLocation +
+                            "</div>" +
+                            "<div class='col' >" + "Price:" + currentproduct.Price + "</div>" +
+                            "<div class='col' >" + "NoOFPeople:" + currentproduct.NumberOfPeople + "</div>";
+
+                        if (currentproduct.IsBooked == "False") {
+
+                            content += "<input style='margin:10px' class='col btn btn-primary' type='button' value='Book' onclick=\"bookProduct(\'Activity\'," + currentproduct.ProductId + ")\" >";
+
+                        }
+
+                        else {
+
+                            content += "<input style='margin:10px;' class='col btn btn-primary' type='button' value='Booked' onclick=\"bookProduct(\'Activity\'," + currentproduct.ProductId + ")\" disabled>";
+
+                        }
+
+                        if (currentproduct.IsSaved == "False") {
+
+                            content += "<input style='margin:10px' class='col btn btn-success' type='button' value='Save' onclick=\"saveProduct(\'Activity\'," + currentproduct.ProductId + ")\">";
+
+                        }
+
+                        else {
+
+                            content += "<input style='margin:10px' class='col btn btn-success' type='button' value='Saved' onclick=\"saveProduct(\'Activity\'," + currentproduct.ProductId + ")\" disabled>";
+
+                        }
+                        "</div>" +
+                            "</div>"
+                        result.innerHTML += content;
+
+
+
+                    });
+                }
+            };
+            xhttp.open("GET", "http://localhost:52419/api/activity", true);
+            xhttp.send();
+        }
+        function getListOfCarProducts() {
+
+            var xhttp = new XMLHttpRequest();
+            var result = document.getElementById("productresult");
+            result.innerHTML = "";
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    productresult = JSON.parse(this.responseText);
+                    productresult.forEach(currentproduct => {
+                        var content;
+                        content =
+                            "<div class='card'>" +
+                            "<div class='row card-body'>" +
+                            "<div class='col'><h3 class='card-title'>" + currentproduct.Name + "</h3></div>" +
+                            "<div class='col'>" +
+                            "Company : " + currentproduct.CompanyName +
+                            "</div>" +
+                            "<div class='col' >" +
+                            "Model no: " + currentproduct.ModelNo +
+                            "</div>" +
+                            "<div class='col' >" + "Price:" + currentproduct.Price + "</div>";
+                        if (currentproduct.IsBooked == "False") {
+
+                            content += "<input style='margin:10px' class='col btn btn-primary' type='button' value='Book' onclick=\"bookProduct(\'Car\'," + currentproduct.ProductId + ")\" >";
+
+                        }
+
+                        else {
+
+                            content += "<input style='margin:10px;' class='col btn btn-primary' type='button' value='Booked' onclick=\"bookProduct(\'Car\'," + currentproduct.ProductId + ")\" disabled>";
+
+                        }
+
+                        if (currentproduct.IsSaved == "False") {
+
+                            content += "<input style='margin:10px' class='col btn btn-success' type='button' value='Save' onclick=\"saveProduct(\'Car\'," + currentproduct.ProductId + ")\">";
+
+                        }
+
+                        else {
+
+                            content += "<input style='margin:10px' class='col btn btn-success' type='button' value='Saved' onclick=\"saveProduct(\'Car\'," + currentproduct.ProductId + ")\" disabled>";
+
+                        }
+                        "</div>" +
+                            "</div>"
+                        result.innerHTML += content;
+
+
+                    });
+                }
+            };
+            xhttp.open("GET", "http://localhost:52419/api/car", true);
+            xhttp.send();
+        }
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li onClick=getListOfAirProducts() class="active">
+                    <a class="nav-link" href="#">Air</a>
+                </li>
+                <li onClick=getListOfHotelProducts() class="active">
+                    <a class="nav-link" href="#">Hotel</a>
+                </li>
+                <li onClick=getListOfActivityProducts() class="active">
+                    <a class="nav-link" href="#">Activity</a>
+                </li>
+                <li onClick=getListOfCarProducts() class="active">
+                    <a class="nav-link" href="#">Car</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div id="productresult" class="container-fluid"></div>
+</body>
+
+</html>

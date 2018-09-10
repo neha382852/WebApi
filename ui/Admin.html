@@ -1,0 +1,297 @@
+<html>
+
+<head>
+    <title>ProductApi</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a data-toggle="tab" href="#air">Air</a>
+            </li>
+            <li>
+                <a data-toggle="tab" href="#hotel">Hotel</a>
+            </li>
+            <li>
+                <a data-toggle="tab" href="#car">Car</a>
+            </li>
+            <li>
+                <a data-toggle="tab" href="#activity">Activity</a>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+            <div id="air" class="tab-pane fade in active">
+                <form class="form-horizontal" method="POST">
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="Name">Name:</label>
+                        <div class="col-sm-10">
+                            <input type="text" id="name" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="Price">price:</label>
+                        <div class="col-sm-10">
+                            <input type="text" id="price" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="ArrivalDate">ArrivalDate:</label>
+                        <div class="col-sm-10">
+                            <input type="text" id="arrivaldate" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2">DepartureDate:</label>
+                        <div class="col-sm-10">
+                            <input type="text" id="DepartureDate" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2">ArrivalTime:</label>
+                        <div class="col-sm-10">
+                            <input type="text" id="ArrivalTime" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2">DepartureTime:</label>
+                        <div class="col-sm-10">
+                            <input type="text" id="DepartureTime" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2">Source:</label>
+                        <div class="col-sm-10">
+                            <input type="text" id="Source" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2">Destination:</label>
+                        <div class="col-sm-10">
+                            <input type="text" id="Destination" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="button" onclick="addAirProduct()" class="btn btn-default">Submit</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div id="hotel" class="tab-pane fade">
+                <form class="form-horizontal">
+                    <div id="hotel" class="container tab-pane active">
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="Name">Name:</label>
+                            <div class="col-sm-10">
+                                <input type="text" id="hotelname" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="Price">Roomprice:</label>
+                            <div class="col-sm-10">
+                                <input type="text" id="roomprice" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">Location</label>
+                            <div class="col-sm-10">
+                                <input type="text" id="location" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">No. Of Available Rooms</label>
+                            <div class="col-sm-10">
+                                <input type="text" id="availablerooms" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">RoomType:</label>
+                            <div class="col-sm-10">
+                                <input type="text" id="roomtype" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">WifiAvailability:</label>
+                            <div class="col-sm-10">
+                                <input type="text" id="wifi" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="button" onclick="addHotelProduct()" class="btn btn-default">Submit</button>
+                    </div>
+                </div>
+            </div>
+            <div id="car" class="tab-pane fade">
+                <form class="form-horizontal">
+                    <div id="carprice1" class="container tab-pane active">
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="Name">Name:</label>
+                            <div class="col-sm-10">
+                                <input type="text" id="carname" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="Price">Price:</label>
+                            <div class="col-sm-10">
+                                <input type="text" id="carprice" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">ModelNo:</label>
+                            <div class="col-sm-10">
+                                <input type="text" id="modelno" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">CompanyName</label>
+                            <div class="col-sm-10">
+                                <input type="text" id="companyname" class="form-control">
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="button" onclick="addCarProduct()" class="btn btn-default">Submit</button>
+                    </div>
+                </div>
+            </div>
+            <div id="activity" class="tab-pane fade">
+                <form class="form-horizontal">
+                    <div id="activity" class="container tab-pane active">
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="Name">Name:</label>
+                            <div class="col-sm-10">
+                                <input type="text" id="name1" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="Price">Price:</label>
+                            <div class="col-sm-10">
+                                <input type="text" id="price1" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">ActivityType:</label>
+                            <div class="col-sm-10">
+                                <input type="text" id="ActivityType" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">NoOfPeople</label>
+                            <div class="col-sm-10">
+                                <input type="text" id="NoOfPeople" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">Activity Location</label>
+                            <div class="col-sm-10">
+                                <input type="text" id="ActivityLocation" class="form-control">
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="button" onclick="addActivityProduct()" class="btn btn-default">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function addAirProduct() {
+
+            var url = "http://localhost:52419/api/air";
+            var airProduct = {};
+            airProduct.Name = document.getElementById("name").value;
+            airProduct.Price = document.getElementById("price").value;
+            airProduct.ArrivalDate = document.getElementById("arrivaldate").value;
+            airProduct.DepartureTime = document.getElementById("DepartureTime").value;
+            airProduct.DeprtureDate = document.getElementById("DepartureDate").value;
+            airProduct.ArrivalTime = document.getElementById("ArrivalTime").value;
+            airProduct.Source = document.getElementById("Source").value;
+            airProduct.Destination = document.getElementById("Destination").value;
+            airProduct.IsBooked = "False";
+            airProduct.IsSaved = "False";
+            var json = JSON.stringify(airProduct);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", url, true);
+            xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+            xhr.send(json);
+            alert("data successfully added");
+        }
+
+
+        function addActivityProduct() {
+            var url = "http://localhost:52419/api/activity";
+            var activityProduct = {};
+            activityProduct.Name = document.getElementById("name1").value;
+            activityProduct.Price = document.getElementById("price1").value;
+            activityProduct.ActivityType = document.getElementById("ActivityType").value;
+            activityProduct.NumberOfPeople = document.getElementById("NoOfPeople").value;
+            activityProduct.ActivityLocation = document.getElementById("ActivityLocation").value;
+
+            activityProduct.IsBooked = "False";
+            activityProduct.IsSaved = "False";
+            var json = JSON.stringify(activityProduct);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", url, true);
+            xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+            xhr.send(json);
+            alert("data successfully added");
+        }
+
+
+        function addCarProduct() {
+            var url = "http://localhost:52419/api/car";
+            var carProduct = {};
+            carProduct.Name = document.getElementById("carname").value;
+            carProduct.Price = document.getElementById("carprice").value;
+            carProduct.ModelNo = document.getElementById("modelno").value;
+            carProduct.CompanyName = document.getElementById("companyname").value;
+            carProduct.IsBooked = "False";
+            carProduct.IsSaved = "False";
+            var json = JSON.stringify(carProduct);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", url, true);
+            xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+            xhr.send(json);
+            alert("data successfully added");
+        }
+
+        function addHotelProduct() {
+            var url = "http://localhost:52419/api/hotel";
+            var hotelProduct = {};
+            hotelProduct.Name = document.getElementById("hotelname").value;
+            hotelProduct.RoomPrice = document.getElementById("roomprice").value;
+            hotelProduct.RoomType = document.getElementById("roomtype").value;
+            hotelProduct.NoOfAvailableRooms = document.getElementById("availablerooms").value;
+            hotelProduct.Location = document.getElementById("location").value;
+            hotelProduct.WifiAvailability = document.getElementById("wifi").value;
+            hotelProduct.IsBooked = "False";
+            hotelProduct.IsSaved = "False";
+            var json = JSON.stringify(hotelProduct);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", url, true);
+            xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+            xhr.send(json);
+            alert("data successfully added");
+        }
+    </script>
+</body>
+
+</html>

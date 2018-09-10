@@ -1,0 +1,25 @@
+body {
+    margin: 0 auto;
+    padding: 0;
+    position:fixed;
+    height:100%;
+    top:0;
+    left:0;
+    right:0;
+}
+h1{
+    
+    width: 600px;
+   
+}
+.wrapper  {
+    
+        width: 700px;
+        margin:5% auto;
+    }
+    .myButton
+    {
+        height:50px;width:100px;
+    }
+  
+  
